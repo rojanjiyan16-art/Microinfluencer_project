@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Rocket, Instagram, Twitter, Facebook, Youtube, Camera } from 'lucide-react';
+import { Instagram, Twitter, Facebook, Youtube } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -9,9 +9,6 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           <div className="space-y-6">
             <div className="flex items-center gap-2">
-              <div className="bg-white text-brand-900 p-2 rounded-xl flex items-center justify-center">
-                <Camera size={22} className="text-brand-500" />
-              </div>
               <span className="text-xl font-black tracking-tight text-brand-400">
                 MicroInfluencer<span className="text-brand-500 italic">Hub</span>
               </span>
