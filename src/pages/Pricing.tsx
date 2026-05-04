@@ -11,8 +11,8 @@ const Pricing = () => {
           <span className="inline-block bg-brand-900 text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-6">
             Untuk Influencer
           </span>
-          <h1 className="text-5xl md:text-7xl font-black text-brand-900 mb-6">Alat Pertumbuhan Profesional</h1>
-          <p className="text-xl text-brand-500 max-w-2xl mx-auto">
+          <h1 className="text-4xl md:text-7xl font-black text-brand-900 mb-6">Alat Pertumbuhan Profesional</h1>
+          <p className="text-lg md:text-xl text-brand-500 max-w-2xl mx-auto">
             Pilih paket yang sesuai dengan tahap karier Anda. Semua paket mencakup visibilitas ke brand kuliner.
           </p>
         </div>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Rocket } from 'lucide-react';
+import { Menu, X, Rocket, Camera } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
 const Navbar = () => {
@@ -34,11 +34,11 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           <Link to="/" className="flex items-center gap-2">
-            <div className="bg-brand-900 text-white p-2 rounded-lg">
-              <Rocket size={24} />
+            <div className="bg-brand-900 text-white p-2 rounded-xl flex items-center justify-center">
+              <Camera size={22} className="text-brand-400" />
             </div>
-            <span className={`text-xl font-bold tracking-tight ${scrolled ? 'text-brand-900' : 'text-brand-900'}`}>
-              MicroInfluencer<span className="text-brand-500">Hub</span>
+            <span className="text-xl font-black tracking-tight text-brand-900">
+              MicroInfluencer<span className="text-brand-500 italic">Hub</span>
             </span>
           </Link>
 

@@ -10,7 +10,7 @@ const Home = () => {
   return (
     <div className="w-full">
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center overflow-hidden">
+      <section className="relative min-h-[90vh] md:h-screen flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
             src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80&w=2000"
@@ -20,20 +20,17 @@ const Home = () => {
           />
         </div>
         
-        <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-20">
+        <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-20 md:pt-20">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="max-w-2xl text-white"
+            className="max-w-2xl text-white text-center md:text-left"
           >
-            <span className="inline-block bg-brand-500/20 backdrop-blur-md text-brand-300 px-4 py-2 rounded-full text-sm font-bold uppercase tracking-widest mb-6">
-              #1 Marketplace Influencer Kuliner
-            </span>
-            <h1 className="text-5xl md:text-7xl font-black leading-[1.1] mb-6">
+            <h1 className="text-4xl md:text-7xl font-black leading-[1.1] mb-6">
               Temukan <span className="text-brand-400">Micro-Influencer</span> Terbaik untuk Bisnis Kuliner Anda
             </h1>
-            <p className="text-xl md:text-2xl text-brand-200 mb-10 leading-relaxed font-light">
+            <p className="text-lg md:text-2xl text-brand-200 mb-10 leading-relaxed font-light">
               Analistik real-time dari TikTok & Instagram untuk membantu Anda memilih influencer yang tepat. Data terverifikasi, engagement nyata.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
@@ -111,12 +108,12 @@ const Home = () => {
       {/* Featured Influencers */}
       <section className="py-24 bg-brand-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-end mb-16">
+          <div className="flex flex-col sm:flex-row items-center justify-between mb-16 gap-6">
             <div>
-              <h2 className="text-4xl md:text-5xl font-black text-brand-900 mb-4">Influencer Unggulan</h2>
-              <p className="text-xl text-brand-500">Pilih dari daftar pakar kuliner terverifikasi kami</p>
+              <h2 className="text-3xl md:text-5xl font-black text-brand-900 mb-4">Influencer Unggulan</h2>
+              <p className="text-lg md:text-xl text-brand-500">Pilih dari daftar pakar kuliner terverifikasi kami</p>
             </div>
-            <Link to="/influencers" className="hidden md:block text-brand-900 font-bold border-b-2 border-brand-900 pb-1 hover:text-brand-500 hover:border-brand-500 transition-colors">
+            <Link to="/influencers" className="text-brand-900 font-bold border-b-2 border-brand-900 pb-1 hover:text-brand-500 hover:border-brand-500 transition-colors shrink-0">
               Lihat Semua Influencer
             </Link>
           </div>

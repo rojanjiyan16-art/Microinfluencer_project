@@ -41,7 +41,7 @@ const InfluencerProfile = () => {
   return (
     <div className="pt-20 pb-24 bg-white min-h-screen">
       {/* Hero Banner */}
-      <section className="relative h-96">
+      <section className="relative h-[300px] md:h-96">
         <img
           src={influencer.portfolio[0]}
           alt="Banner"
@@ -50,31 +50,31 @@ const InfluencerProfile = () => {
         />
         <div className="absolute inset-x-0 bottom-0 translate-y-1/2">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col md:flex-row items-end gap-8">
+            <div className="flex flex-col md:flex-row items-center md:items-end gap-6 md:gap-8">
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
-                className="w-48 h-48 rounded-[40px] border-8 border-white overflow-hidden shadow-2xl bg-white"
+                className="w-32 h-32 md:w-48 md:h-48 rounded-[30px] md:rounded-[40px] border-4 md:border-8 border-white overflow-hidden shadow-2xl bg-white"
               >
                 <img src={influencer.photo} alt={influencer.name} className="w-full h-full object-cover" />
               </motion.div>
-              <div className="flex-1 pb-4">
-                <div className="flex flex-wrap items-center gap-4 mb-2">
-                  <h1 className="text-4xl font-black text-brand-900">{influencer.name}</h1>
-                  <span className="bg-brand-900 text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest flex items-center gap-2">
+              <div className="flex-1 text-center md:text-left pb-0 md:pb-4">
+                <div className="flex flex-col md:flex-row flex-wrap items-center gap-2 md:gap-4 mb-2">
+                  <h1 className="text-3xl md:text-4xl font-black text-brand-900 leading-tight">{influencer.name}</h1>
+                  <span className="bg-brand-900 text-white px-4 py-1 rounded-full text-[10px] md:text-xs font-bold uppercase tracking-widest flex items-center gap-2">
                     <Instagram size={14} /> {influencer.platform}
                   </span>
                 </div>
-                <div className="flex items-center text-brand-500 gap-4 font-medium">
+                <div className="flex flex-col md:flex-row items-center text-brand-500 gap-2 md:gap-4 font-medium text-sm md:text-base">
                   <div className="flex items-center gap-1"><MapPin size={16} /> {influencer.location}</div>
                   <div className="flex items-center gap-1 capitalize"><PieChartIcon size={16} /> {influencer.niche}</div>
                 </div>
               </div>
-              <div className="pb-4 flex gap-3 w-full md:w-auto">
-                <button className="flex-1 md:flex-none flex items-center justify-center gap-2 bg-brand-900 text-white px-8 py-4 rounded-2xl font-bold hover:bg-brand-800 transition-all shadow-xl shadow-brand-900/20">
+              <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto md:pb-4 mt-4 md:mt-0">
+                <button className="flex-1 flex items-center justify-center gap-2 bg-brand-900 text-white px-6 md:px-8 py-4 rounded-2xl font-bold hover:bg-brand-800 transition-all shadow-xl shadow-brand-900/20 text-sm md:text-base">
                   <MessageSquare size={20} /> Ajukan Kolaborasi
                 </button>
-                <button className="flex-1 md:flex-none flex items-center justify-center gap-2 bg-brand-50 text-brand-900 px-8 py-4 rounded-2xl font-bold hover:bg-brand-100 transition-all">
+                <button className="flex-1 flex items-center justify-center gap-2 bg-brand-50 text-brand-900 px-6 md:px-8 py-4 rounded-2xl font-bold hover:bg-brand-100 transition-all text-sm md:text-base">
                   <Calendar size={20} /> Cek Ketersediaan
                 </button>
               </div>
@@ -84,7 +84,7 @@ const InfluencerProfile = () => {
       </section>
 
       {/* Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-32">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-48 md:mt-32">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           {/* Main Info */}
           <div className="lg:col-span-2 space-y-12">
@@ -134,14 +134,14 @@ const InfluencerProfile = () => {
             </div>
 
             {/* Analytics Section - Only for Paid Profiles Preview */}
-            <div className="bg-brand-900 text-white rounded-[50px] p-12 overflow-hidden relative">
+            <div className="bg-brand-900 text-white rounded-[30px] md:rounded-[50px] p-6 md:p-12 overflow-hidden relative">
               <div className="absolute top-0 right-0 w-64 h-64 bg-brand-500/10 rounded-full blur-3xl -mr-32 -mt-32" />
-              <div className="relative z-10 flex flex-col md:flex-row justify-between items-start gap-8 mb-10">
+              <div className="relative z-10 flex flex-col md:flex-row justify-between items-start gap-4 md:gap-8 mb-10">
                 <div>
-                  <h2 className="text-3xl font-black mb-2">Analitik Performa</h2>
-                  <p className="text-brand-300">Metrik pertumbuhan dan engagement detail (Data Terverifikasi)</p>
+                  <h2 className="text-2xl md:text-3xl font-black mb-2">Analitik Performa</h2>
+                  <p className="text-brand-300 text-sm md:text-base">Metrik pertumbuhan dan engagement detail (Data Terverifikasi)</p>
                 </div>
-                <div className="bg-brand-400 text-brand-900 px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest">
+                <div className="bg-brand-400 text-brand-900 px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest shrink-0">
                   Analitik Terverifikasi
                 </div>
               </div>

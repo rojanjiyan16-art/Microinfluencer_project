@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { Rocket, Target, Heart, ShieldCheck } from 'lucide-react';
+import { Rocket, Target, Heart, ShieldCheck, Camera } from 'lucide-react';
 
 const About = () => {
   return (
@@ -8,11 +8,11 @@ const About = () => {
       {/* Vision */}
       <section className="py-32 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mb-24">
-            <h1 className="text-5xl md:text-7xl font-black text-brand-900 mb-8 leading-tight">
+          <div className="max-w-3xl mb-16 md:mb-24 text-center md:text-left">
+            <h1 className="text-4xl md:text-7xl font-black text-brand-900 mb-6 md:mb-8 leading-tight">
               Mendigitalkan Word-of-Mouth.
             </h1>
-            <p className="text-xl md:text-2xl text-brand-500 leading-relaxed font-light">
+            <p className="text-lg md:text-2xl text-brand-500 leading-relaxed font-light">
               Misi kami adalah menciptakan transparansi dalam dunia pemasaran kuliner. Kami menghubungkan para pencerita kuliner yang antusias dengan bisnis lokal yang membuat kota kita lezat.
             </p>
           </div>
@@ -34,17 +34,24 @@ const About = () => {
                 </p>
               </div>
             </div>
-            <div className="relative">
-              <img
-                src="https://images.unsplash.com/photo-1556761175-129418cb2dfe?auto=format&fit=crop&q=80&w=800"
-                alt="Our Team Office"
-                className="rounded-[50px] shadow-2xl"
-                referrerPolicy="no-referrer"
-              />
-               <div className="absolute -bottom-8 -left-8 bg-brand-400 text-brand-900 p-8 rounded-[30px] font-bold text-lg shadow-xl">
-                 Didirikan tahun 2024
-               </div>
-            </div>
+              <div className="relative group">
+                <img
+                  src="https://images.unsplash.com/photo-1616469829581-73993eb86b02?auto=format&fit=crop&q=80&w=1000"
+                  alt="Professional Content Creator Setup"
+                  className="rounded-[50px] shadow-2xl transition-transform duration-700 group-hover:scale-105"
+                  referrerPolicy="no-referrer"
+                />
+                <div className="absolute inset-0 bg-brand-900/10 rounded-[50px]"></div>
+                 <div className="absolute -bottom-4 -left-4 md:-bottom-8 md:-left-8 bg-brand-400 text-brand-900 p-4 md:p-8 rounded-[24px] md:rounded-[30px] font-black text-sm md:text-lg shadow-xl flex items-center gap-3 md:gap-4">
+                   <div className="bg-brand-900 text-white p-2 md:p-3 rounded-xl md:rounded-2xl shrink-0">
+                     <Camera size={24} className="md:w-8 md:h-8" />
+                   </div>
+                   <div>
+                     <p className="leading-none">Didirikan 2024</p>
+                     <p className="text-[10px] md:text-sm font-medium text-brand-900/60 mt-0.5 md:mt-1">Jakarta, Indonesia</p>
+                   </div>
+                 </div>
+              </div>
           </div>
         </div>
       </section>

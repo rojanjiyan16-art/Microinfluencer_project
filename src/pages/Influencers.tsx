@@ -8,6 +8,7 @@ const Influencers = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedNiche, setSelectedNiche] = useState<Niche | 'All'>('All');
   const [selectedPlatform, setSelectedPlatform] = useState<PlatformType | 'All'>('All');
+  const [showFilters, setShowFilters] = useState(false);
 
   const filteredInfluencers = INFLUENCERS.filter((inf) => {
     const matchesSearch = inf.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
@@ -29,8 +30,19 @@ const Influencers = () => {
         </div>
 
         <div className="flex flex-col lg:flex-row gap-10">
+          {/* Mobile Filter Toggle */}
+          <div className="lg:hidden">
+            <button
+              onClick={() => setShowFilters(!showFilters)}
+              className="flex items-center justify-center gap-2 w-full bg-white border border-brand-100 p-4 rounded-2xl font-bold text-brand-900 shadow-sm"
+            >
+              <Filter size={20} />
+              {showFilters ? 'Sembunyikan Filter' : 'Tampilkan Filter'}
+            </button>
+          </div>
+
           {/* Filters Sidebar */}
-          <aside className="lg:w-1/4 space-y-8">
+          <aside className={`lg:w-1/4 space-y-8 ${showFilters ? 'block' : 'hidden lg:block'}`}>
             <div className="bg-white p-8 rounded-[30px] border border-brand-100 shadow-sm">
               <div className="flex items-center gap-2 mb-6">
                 <Filter size={20} className="text-brand-500" />
