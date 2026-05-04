@@ -11,12 +11,12 @@ const ForUMKM = () => {
         <div className="absolute top-0 right-0 w-full h-full opacity-10">
           <ShoppingBag size={600} className="absolute -top-20 -right-20" />
         </div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-3xl">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+          <div className="max-w-4xl mx-auto">
             <h1 className="text-4xl md:text-7xl font-black mb-8 leading-tight">
               Kembangkan Brand Kuliner Anda dengan Suara <span className="text-brand-400">Terpercaya</span>.
             </h1>
-            <p className="text-lg md:text-2xl text-brand-300 font-light leading-relaxed mb-10">
+            <p className="text-lg md:text-2xl text-brand-300 font-light leading-relaxed mb-10 max-w-2xl mx-auto">
               Micro-influencer adalah senjata rahasia bagi UMKM kuliner. Jangkau lingkungan sekitar Anda dengan influencer yang benar-benar mencicipi dan menyukai makanan Anda.
             </p>
             <Link

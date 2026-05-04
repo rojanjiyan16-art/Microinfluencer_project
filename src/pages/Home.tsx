@@ -22,18 +22,18 @@ const Home = () => {
         
         <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-20 md:pt-20">
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="max-w-2xl text-white text-center md:text-left"
+            className="max-w-3xl mx-auto text-white text-center"
           >
             <h1 className="text-4xl md:text-7xl font-black leading-[1.1] mb-6">
               Temukan <span className="text-brand-400">Micro-Influencer</span> Terbaik untuk Bisnis Kuliner Anda
             </h1>
-            <p className="text-lg md:text-2xl text-brand-200 mb-10 leading-relaxed font-light">
+            <p className="text-lg md:text-2xl text-brand-200 mb-10 leading-relaxed font-light mx-auto max-w-2xl">
               Analistik real-time dari TikTok & Instagram untuk membantu Anda memilih influencer yang tepat. Data terverifikasi, engagement nyata.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Link
                 to="/influencers"
                 className="bg-white text-brand-900 px-10 py-5 rounded-full text-lg font-bold hover:bg-brand-50 transition-all text-center shadow-2xl"

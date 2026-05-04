@@ -12,8 +12,8 @@ const Footer = () => {
               <div className="bg-white text-brand-900 p-2 rounded-xl flex items-center justify-center">
                 <Camera size={22} className="text-brand-500" />
               </div>
-              <span className="text-xl font-black tracking-tight">
-                MicroInfluencer<span className="text-brand-400 italic">Hub</span>
+              <span className="text-xl font-black tracking-tight text-brand-400">
+                MicroInfluencer<span className="text-brand-500 italic">Hub</span>
               </span>
             </div>
             <p className="text-brand-300 leading-relaxed">

@@ -24,7 +24,7 @@ const Influencers = () => {
   return (
     <div className="pt-32 pb-24 bg-brand-50 min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-12">
+        <div className="mb-12 text-center max-w-2xl mx-auto">
           <h1 className="text-4xl md:text-5xl font-black text-brand-900 mb-4">Cari Influencer</h1>
           <p className="text-xl text-brand-500">Cari melalui daftar influencer mikro kuliner kami yang sudah terverifikasi.</p>
         </div>

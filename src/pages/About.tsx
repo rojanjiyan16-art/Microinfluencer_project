@@ -8,7 +8,7 @@ const About = () => {
       {/* Vision */}
       <section className="py-32 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mb-16 md:mb-24 text-center md:text-left">
+          <div className="max-w-3xl mb-16 md:mb-24 text-center mx-auto">
             <h1 className="text-4xl md:text-7xl font-black text-brand-900 mb-6 md:mb-8 leading-tight">
               Mendigitalkan Word-of-Mouth.
             </h1>

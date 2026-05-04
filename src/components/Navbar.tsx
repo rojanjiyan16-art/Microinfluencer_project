@@ -27,8 +27,8 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? 'bg-white/80 backdrop-blur-md shadow-sm py-4' : 'bg-transparent py-6'
+      className={`fixed top-4 left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] max-w-7xl z-50 transition-all duration-300 rounded-[20px] ${
+        scrolled ? 'bg-white/80 backdrop-blur-md shadow-lg py-3' : 'bg-white/20 backdrop-blur-sm py-5'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -37,8 +37,8 @@ const Navbar = () => {
             <div className="bg-brand-900 text-white p-2 rounded-xl flex items-center justify-center">
               <Camera size={22} className="text-brand-400" />
             </div>
-            <span className="text-xl font-black tracking-tight text-brand-900">
-              MicroInfluencer<span className="text-brand-500 italic">Hub</span>
+            <span className="text-xl font-black tracking-tight text-brand-500">
+              MicroInfluencer<span className="text-brand-400 italic">Hub</span>
             </span>
           </Link>
 
