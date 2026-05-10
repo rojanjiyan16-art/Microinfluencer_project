@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, LogOut, User } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
+import { useAuth } from '../context/AuthContext';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { user, signOut } = useAuth();
   const location = useLocation();
 
   useEffect(() => {
@@ -52,12 +54,34 @@ const Navbar = () => {
                 {link.name}
               </Link>
             ))}
-            <Link
-              to="/login"
-              className="bg-brand-900 text-white px-6 py-2.5 rounded-full text-sm font-semibold hover:bg-brand-800 transition-all shadow-lg shadow-brand-900/10"
-            >
-              Daftar
-            </Link>
+            {user ? (
+              <div className="flex items-center gap-4">
+                <div className="flex items-center gap-2 bg-brand-50 px-3 py-1.5 rounded-full border border-brand-100">
+                  {user.photoURL ? (
+                    <img src={user.photoURL} alt={user.displayName || 'User'} className="w-6 h-6 rounded-full" />
+                  ) : (
+                    <User size={16} className="text-brand-500" />
+                  )}
+                  <span className="text-sm font-bold text-brand-900 truncate max-w-[100px]">
+                    {user.displayName?.split(' ')[0] || 'User'}
+                  </span>
+                </div>
+                <button
+                  onClick={() => signOut()}
+                  className="text-brand-600 hover:text-brand-900 transition-colors p-1"
+                  title="Logout"
+                >
+                  <LogOut size={18} />
+                </button>
+              </div>
+            ) : (
+              <Link
+                to="/login"
+                className="bg-brand-900 text-white px-6 py-2.5 rounded-full text-sm font-semibold hover:bg-brand-800 transition-all shadow-lg shadow-brand-900/10"
+              >
+                Masuk
+              </Link>
+            )}
           </div>
 
           {/* Mobile Menu Button */}
@@ -97,13 +121,38 @@ const Navbar = () => {
                 </Link>
               ))}
               <div className="pt-4 px-2">
-                <Link
-                  to="/login"
-                  onClick={() => setIsOpen(false)}
-                  className="block w-full text-center bg-brand-900 text-white py-4 rounded-2xl font-bold shadow-xl shadow-brand-900/20"
-                >
-                  Daftar Sekarang
-                </Link>
+                {user ? (
+                  <div className="space-y-3">
+                    <div className="flex items-center gap-4 p-4 bg-brand-50 rounded-2xl">
+                      {user.photoURL ? (
+                        <img src={user.photoURL} alt={user.displayName || 'User'} className="w-12 h-12 rounded-xl" />
+                      ) : (
+                        <div className="bg-brand-200 p-3 rounded-xl"><User size={24} className="text-brand-500" /></div>
+                      )}
+                      <div>
+                        <p className="font-bold text-brand-900">{user.displayName || 'Pengguna'}</p>
+                        <p className="text-xs text-brand-400">{user.email}</p>
+                      </div>
+                    </div>
+                    <button
+                      onClick={() => {
+                        signOut();
+                        setIsOpen(false);
+                      }}
+                      className="flex items-center justify-center gap-2 w-full bg-red-50 text-red-600 py-4 rounded-2xl font-bold transition-colors"
+                    >
+                      <LogOut size={20} /> Keluar
+                    </button>
+                  </div>
+                ) : (
+                  <Link
+                    to="/login"
+                    onClick={() => setIsOpen(false)}
+                    className="block w-full text-center bg-brand-900 text-white py-4 rounded-2xl font-bold shadow-xl shadow-brand-900/20"
+                  >
+                    Daftar Sekarang
+                  </Link>
+                )}
               </div>
             </div>
           </motion.div>
