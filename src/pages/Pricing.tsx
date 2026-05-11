@@ -5,7 +5,7 @@ import { HelpCircle } from 'lucide-react';
 
 const Pricing = () => {
   return (
-    <div className="pt-32 pb-24 bg-brand-50 min-h-screen">
+    <div className="pt-40 pb-24 bg-brand-50 min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-20">
           <span className="inline-block bg-brand-900 text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-6">

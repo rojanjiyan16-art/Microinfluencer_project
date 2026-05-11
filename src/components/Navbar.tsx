@@ -56,6 +56,12 @@ const Navbar = () => {
             ))}
             {user ? (
               <div className="flex items-center gap-4">
+                <Link 
+                  to={user.role === 'umkm' ? '/dashboard/umkm' : '/dashboard/influencer'}
+                  className="text-sm font-bold text-brand-900 border-b-2 border-transparent hover:border-brand-900 transition-all px-1"
+                >
+                  Dashboard
+                </Link>
                 <div className="flex items-center gap-2 bg-brand-50 px-3 py-1.5 rounded-full border border-brand-100">
                   {user.photoURL ? (
                     <img src={user.photoURL} alt={user.displayName || 'User'} className="w-6 h-6 rounded-full" />
@@ -123,6 +129,13 @@ const Navbar = () => {
               <div className="pt-4 px-2">
                 {user ? (
                   <div className="space-y-3">
+                    <Link
+                      to={user.role === 'umkm' ? '/dashboard/umkm' : '/dashboard/influencer'}
+                      onClick={() => setIsOpen(false)}
+                      className="block w-full text-center bg-brand-100 text-brand-900 py-4 rounded-2xl font-bold mb-2 transition-colors"
+                    >
+                      Buka Dashboard
+                    </Link>
                     <div className="flex items-center gap-4 p-4 bg-brand-50 rounded-2xl">
                       {user.photoURL ? (
                         <img src={user.photoURL} alt={user.displayName || 'User'} className="w-12 h-12 rounded-xl" />
@@ -146,11 +159,11 @@ const Navbar = () => {
                   </div>
                 ) : (
                   <Link
-                    to="/login"
+                    to="/register"
                     onClick={() => setIsOpen(false)}
                     className="block w-full text-center bg-brand-900 text-white py-4 rounded-2xl font-bold shadow-xl shadow-brand-900/20"
                   >
-                    Daftar Sekarang
+                    Mulai Sekarang
                   </Link>
                 )}
               </div>

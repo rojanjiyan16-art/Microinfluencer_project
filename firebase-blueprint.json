@@ -1,0 +1,67 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "Base user profile for both UMKM and Influencers",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string" },
+        "role": { "type": "string", "enum": ["umkm", "influencer"] },
+        "displayName": { "type": "string" },
+        "waNumber": { "type": "string" },
+        "location": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "business": {
+          "type": "object",
+          "properties": {
+            "ownerName": { "type": "string" },
+            "businessName": { "type": "string" },
+            "category": { "type": "string" },
+            "logoUrl": { "type": "string" },
+            "socialLinks": {
+              "type": "object",
+              "properties": {
+                "instagram": { "type": "string" },
+                "tiktok": { "type": "string" }
+              }
+            }
+          }
+        },
+        "influencer": {
+          "type": "object",
+          "properties": {
+            "fullName": { "type": "string" },
+            "username": { "type": "string" },
+            "niche": { "type": "string" },
+            "photoUrl": { "type": "string" },
+            "bio": { "type": "string" },
+            "rateCard": {
+              "type": "object",
+              "properties": {
+                "tiktokVideo": { "type": "number" },
+                "igReels": { "type": "number" },
+                "igStory": { "type": "number" }
+              }
+            },
+            "status": { "type": "string", "enum": ["FREE", "PRO"] },
+            "connectedAccounts": {
+              "type": "object",
+              "properties": {
+                "tiktok": { "type": "boolean" },
+                "instagram": { "type": "boolean" }
+              }
+            }
+          }
+        }
+      },
+      "required": ["uid", "email", "role", "displayName", "waNumber", "location", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "Collection of all user profiles (UMKM and Influencers)"
+    }
+  }
+}

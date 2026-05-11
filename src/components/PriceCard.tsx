@@ -2,12 +2,27 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { Check, X } from 'lucide-react';
 import { PricingPlan } from '../types';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../hooks/useAuth';
 
 interface Props {
   plan: PricingPlan;
 }
 
 const PriceCard: React.FC<Props> = ({ plan }) => {
+  const navigate = useNavigate();
+  const { user } = useAuth();
+
+  const handleAction = () => {
+    if (!user) {
+      navigate('/register');
+    } else {
+      // If user is logged in, redirect to subscription/payment page
+      // We pass the plan name as a query param or state if needed
+      navigate(`/subscription?plan=${plan.name.toLowerCase()}`);
+    }
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -48,11 +63,8 @@ const PriceCard: React.FC<Props> = ({ plan }) => {
       </div>
 
       <button
-        className={`w-full py-4 rounded-xl font-bold transition-all ${
-          plan.recommended
-            ? 'bg-brand-900 text-white hover:bg-brand-800 shadow-lg shadow-brand-900/20'
-            : 'bg-brand-50 text-brand-900 hover:bg-brand-100'
-        }`}
+        onClick={handleAction}
+        className={`w-full py-4 rounded-xl font-bold transition-all bg-black text-white hover:bg-zinc-800 shadow-lg shadow-black/20`}
       >
         Pilih {plan.name}
       </button>

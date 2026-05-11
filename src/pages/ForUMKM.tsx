@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const ForUMKM = () => {
   return (
-    <div className="pt-20">
+    <div className="pt-24">
       {/* Hero */}
       <section className="bg-brand-900 text-white py-32 overflow-hidden relative">
         <div className="absolute top-0 right-0 w-full h-full opacity-10">

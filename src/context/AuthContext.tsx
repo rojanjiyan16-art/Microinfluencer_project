@@ -6,8 +6,12 @@ import {
 } from 'firebase/auth';
 import { auth } from '../lib/firebase';
 
+interface AuthUser extends User {
+  role?: 'umkm' | 'influencer';
+}
+
 interface AuthContextType {
-  user: User | null;
+  user: AuthUser | null;
   loading: boolean;
   signOut: () => Promise<void>;
 }
@@ -15,12 +19,29 @@ interface AuthContextType {
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [user, setUser] = useState<User | null>(null);
+  const [user, setUser] = useState<AuthUser | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      setUser(user);
+    const unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => {
+      if (firebaseUser) {
+        try {
+          const { doc, getDoc } = await import('firebase/firestore');
+          const { db } = await import('../lib/firebase');
+          const userDoc = await getDoc(doc(db, 'users', firebaseUser.uid));
+          if (userDoc.exists()) {
+            const userData = userDoc.data();
+            setUser({ ...firebaseUser, role: userData.role } as AuthUser);
+          } else {
+            setUser(firebaseUser as AuthUser);
+          }
+        } catch (error) {
+          console.error("Error fetching user role:", error);
+          setUser(firebaseUser as AuthUser);
+        }
+      } else {
+        setUser(null);
+      }
       setLoading(false);
     });
 

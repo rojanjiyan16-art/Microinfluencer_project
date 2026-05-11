@@ -10,6 +10,10 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import UMKMDashboard from './pages/UMKMDashboard';
+import InfluencerDashboard from './pages/InfluencerDashboard';
+import Subscription from './pages/Subscription';
+
 
 export default function App() {
   return (
@@ -26,6 +30,10 @@ export default function App() {
             <Route path="contact" element={<Contact />} />
             <Route path="login" element={<Login />} />
             <Route path="register" element={<Register />} />
+            <Route path="dashboard/umkm" element={<UMKMDashboard />} />
+            <Route path="dashboard/influencer" element={<InfluencerDashboard />} />
+            <Route path="subscription" element={<Subscription />} />
+
             <Route path="*" element={<Home />} />
           </Route>
         </Routes>
