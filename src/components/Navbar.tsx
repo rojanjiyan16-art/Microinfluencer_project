@@ -159,11 +159,11 @@ const Navbar = () => {
                   </div>
                 ) : (
                   <Link
-                    to="/register"
+                    to="/login"
                     onClick={() => setIsOpen(false)}
                     className="block w-full text-center bg-brand-900 text-white py-4 rounded-2xl font-bold shadow-xl shadow-brand-900/20"
                   >
-                    Mulai Sekarang
+                    Daftar Sekarang
                   </Link>
                 )}
               </div>

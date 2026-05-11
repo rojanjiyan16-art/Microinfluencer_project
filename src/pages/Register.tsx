@@ -8,7 +8,6 @@ import {
 } from 'firebase/auth';
 import { doc, setDoc, serverTimestamp } from 'firebase/firestore';
 import { auth, db } from '../lib/firebase';
-import { handleFirestoreError, OperationType } from '../lib/firestore-errors';
 import { useNavigate } from 'react-router-dom';
 import { Loader2, Store, Users, User, ArrowRight, Instagram, MessageSquare, MapPin } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
@@ -94,7 +93,7 @@ const Register = () => {
           businessName: values.businessName,
           category: values.category,
         }
-      }).catch(err => handleFirestoreError(err, OperationType.CREATE, `users/${user.uid}`));
+      });
 
       navigate('/dashboard/umkm');
     } catch (err: any) {
@@ -142,7 +141,7 @@ const Register = () => {
             instagram: false
           }
         }
-      }).catch(err => handleFirestoreError(err, OperationType.CREATE, `users/${user.uid}`));
+      });
 
       navigate('/dashboard/influencer');
     } catch (err: any) {

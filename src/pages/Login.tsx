@@ -7,7 +7,6 @@ import {
 } from 'firebase/auth';
 import { doc, getDoc } from 'firebase/firestore';
 import { auth, db } from '../lib/firebase';
-import { handleFirestoreError, OperationType } from '../lib/firestore-errors';
 import { motion } from 'motion/react';
 import { Store, Users, Loader2, ArrowRight, Chrome, Mail, Lock } from 'lucide-react';
 
@@ -27,8 +26,7 @@ const Login = () => {
     setError('');
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
-      const userDoc = await getDoc(doc(db, 'users', userCredential.user.uid))
-        .catch(err => handleFirestoreError(err, OperationType.GET, `users/${userCredential.user.uid}`));
+      const userDoc = await getDoc(doc(db, 'users', userCredential.user.uid));
       
       if (userDoc.exists()) {
         const userData = userDoc.data();
@@ -56,8 +54,7 @@ const Login = () => {
     try {
       const provider = new GoogleAuthProvider();
       const userCredential = await signInWithPopup(auth, provider);
-      const userDoc = await getDoc(doc(db, 'users', userCredential.user.uid))
-        .catch(err => handleFirestoreError(err, OperationType.GET, `users/${userCredential.user.uid}`));
+      const userDoc = await getDoc(doc(db, 'users', userCredential.user.uid));
       
       if (userDoc.exists()) {
         const userData = userDoc.data();
