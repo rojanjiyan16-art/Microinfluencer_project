@@ -99,13 +99,7 @@ const Register = () => {
       navigate('/dashboard/umkm');
     } catch (err: any) {
       console.error(err);
-      if (err.code === 'auth/operation-not-allowed') {
-        setError('Metode Email/Password belum diaktifkan di Firebase Console. Silakan aktifkan di menu Authentication > Sign-in method.');
-      } else if (err.code === 'auth/email-already-in-use') {
-        setError('Email sudah terdaftar sebagai UMKM atau tipe lain. Silakan gunakan email berbeda.');
-      } else {
-        setError(err.message || 'Pendaftaran UMKM gagal');
-      }
+      setError(err.message || 'Pendaftaran gagal');
     } finally {
       setLoading(false);
     }
@@ -153,13 +147,7 @@ const Register = () => {
       navigate('/dashboard/influencer');
     } catch (err: any) {
       console.error(err);
-      if (err.code === 'auth/operation-not-allowed') {
-        setError('Metode Email/Password belum diaktifkan di Firebase Console. Silakan aktifkan di menu Authentication > Sign-in method.');
-      } else if (err.code === 'auth/email-already-in-use') {
-        setError('Email sudah terdaftar. Silakan gunakan email lain atau masuk.');
-      } else {
-        setError(err.message || 'Pendaftaran Influencer gagal');
-      }
+      setError(err.message || 'Pendaftaran gagal');
     } finally {
       setLoading(false);
     }

@@ -43,13 +43,7 @@ const Login = () => {
       }
     } catch (err: any) {
       console.error(err);
-      if (err.code === 'auth/operation-not-allowed') {
-        setError('Metode login ini belum diaktifkan di Firebase Console.');
-      } else if (err.code === 'auth/user-not-found' || err.code === 'auth/wrong-password' || err.code === 'auth/invalid-credential') {
-        setError('Email atau password salah. Silakan periksa kembali.');
-      } else {
-        setError('Login gagal. Silakan coba lagi.');
-      }
+      setError('Email atau password salah');
     } finally {
       setLoading(false);
     }
@@ -79,13 +73,7 @@ const Login = () => {
       }
     } catch (err: any) {
       console.error(err);
-      if (err.code === 'auth/popup-closed-by-user') {
-        setError('Login dibatalkan (popup ditutup).');
-      } else if (err.code === 'auth/operation-not-allowed') {
-        setError('Login Google belum diaktifkan di Firebase Console.');
-      } else {
-        setError('Login Google gagal. Pastikan koneksi stabil.');
-      }
+      setError('Login Google gagal');
     } finally {
       setLoading(false);
     }
